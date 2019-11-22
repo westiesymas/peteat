@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  barnum: string;
 
-  constructor() {}
+  // DI barcodeScanner
+  constructor(private barcodeScanner: BarcodeScanner){ }
+  
+  scan() {
+    this.barcodeScanner.scan().then(data => {
+        // this is called when a barcode is found
+        this.barnum = data.text
+      }).catch(err => {
+        console.log('Error', err);
+    });      
+  }
 
 }
