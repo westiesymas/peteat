@@ -20,5 +20,10 @@ export class Tab2Page {
         console.log('Error', err);
     });      
   }
+  ionViewDidEnter() {
+    this.scan();
+   
+}
+  
 
 }
