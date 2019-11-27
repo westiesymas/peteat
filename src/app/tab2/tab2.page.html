@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+     
   <ion-content  class="ion-padding">
   
     <ion-list>
@@ -20,5 +20,23 @@
         <button ion-button (click)="scan()">Button</button>
       </ion-item>
     
+    
+    <ion-item>
+        <ion-label position="stacked">What\'s your name?</ion-label>
+        <ion-input [(ngModel)]="product.name" placeholder="Name"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="stacked">What\'s your name?</ion-label>
+          <ion-input [(ngModel)]="product.brand" placeholder="Brand"></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-label position="stacked">What are your special skills (comma separated)?</ion-label>
+        <ion-input [(ngModel)]="product.valuation" placeholder="valuation"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Your image URL</ion-label>
+        <ion-input [(ngModel)]="product.ingredients" placeholder="ingredients list"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="addproduct()">Add Developer Info</ion-button>
     </ion-list>
 </ion-content>
