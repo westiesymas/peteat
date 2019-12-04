@@ -2,7 +2,6 @@
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { DatabaseService, Pro } from './../services/database.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
@@ -17,7 +16,6 @@ export class Tab2Page implements OnInit {
  
   product = {};
  
-  selectedView = 'devs';
  
 
   // DI barcodeScanner
@@ -32,12 +30,14 @@ export class Tab2Page implements OnInit {
     });
   }
  
-  addproduct() {
-    this.db.addproduct(this.product[this.barnum], this.product['name'], this.product['brand'],this.product['valuation'],this.product['ingredients'])
-    .then(_ => {
-      this.product = {};
-    });
-  }
+  //addproduct() {
+    //this.db.addproduct(this.product[this.barnum], this.product['name'], this.product['brand'],this.product['valuation'],this.product['ingredients'])
+    //.then(_ => {
+      //this.product = {};
+    //});
+  //}
+
+  
  
 
   
@@ -52,6 +52,7 @@ export class Tab2Page implements OnInit {
   }
   ionViewDidEnter() {
     this.scan();
+    this.db.getProduct(this.barnum);
    
 }
   
