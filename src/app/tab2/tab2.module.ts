@@ -5,28 +5,33 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 
-import { BrowserModule } from '@angular/platform-browser';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
-import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
-import { SQLite } from '@ionic-native/sqlite/ngx';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  entryComponents: [],
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forChild([{ path: '', component: Tab2Page }
-    ])
-  ],
-  providers: [
-    SQLite,
-    SQLitePorter
+    
+    RouterModule.forChild([{ path: '', component: Tab2Page }])
   ],
   declarations: [Tab2Page]
 })
-export class Tab2PageModule {}
+
+
+export class Tab2PageModule {
+
+  
+  constructor(private barcodeScanner: BarcodeScanner) { }
+
+  scan() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      // success. barcodeData is the data returned by scanner
+    }).catch(err => {
+      // error
+    });
+  }
+   
+ }
