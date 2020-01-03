@@ -7,8 +7,32 @@
 </ion-header>
 
 <ion-content>
-  <button ion-button (click) = "scan()" icon-start large round color="dark">
-    <ion-icon name="star"></ion-icon>
-    clike me m8
-  </button>
+  
+    <ion-list>
+  
+      <ion-item>
+        <ion-label fixed>Number</ion-label>
+        <ion-input type="text" value="" [(ngModel)]="barnum"></ion-input>
+        <ion-label fixed>Number</ion-label>
+      </ion-item>
+   
+   <ion-item>
+        <button ion-button (click)="scan()">Scan</button>
+        <button ion-button (click)="showProduct()">SProduct</button>
+      </ion-item>
+    
+    
+      <ion-item>
+        <ion-label position="stacked">What\'s your name?</ion-label>
+        <ion-input [(ngModel)]="product.name" placeholder="Developer Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">What are your special skills (comma separated)?</ion-label>
+        <ion-input [(ngModel)]="ingredients" placeholder="Special Skills"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Your image URL</ion-label>
+        <ion-input [(ngModel)]="product.img" placeholder="https://..."></ion-input>
+      </ion-item>
+    </ion-list>
 </ion-content>
